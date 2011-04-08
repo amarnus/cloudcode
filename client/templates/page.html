@@ -1,0 +1,28 @@
+<html>
+<head>
+	<title>Collaborative Editing / Version 1</title>
+	<meta name="description" content="Locked editing"/>
+	<meta name="author" content="Amar Ravikumar">
+	<link href="/static/base.css" rel="stylesheet" type="text/css"/>
+	<link href="/static/" rel="bespin" id="bespin_base"/>
+	<link href="/static/BespinEmbedded.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+  <div class="container">
+	  <div class="main">
+		  <div class="code-editor bespin">
+			</div>
+		</div>
+	</div>
+	<footer>
+		<script type="text/javascript" src="/static/jquery-1.3.2.min.js"></script>
+		<script type="text/javascript" src="/static/BespinEmbedded.js"></script>
+		<script type="text/javascript">
+		  var channelToken = "{{token}}";
+		  var groupKey = "{{group_key}}";
+		</script>
+		<script type="text/javascript" src="/_ah/channel/jsapi"></script>
+		<script type="text/javascript" src="/static/transform.version1.js"></script>
+	</footer>
+</body>
+</html>
