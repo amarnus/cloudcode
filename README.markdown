@@ -1,0 +1,2 @@
+Cloudcode is an offline-capable, symmetric client-server application that allows users to create, manage and deploy simple web applications using open web technologies from 
+the browser. The source code will be available here as soon as my FYP presentation gets over.
