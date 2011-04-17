@@ -1,0 +1,46 @@
+<head>
+  <title>Codemirror + JSHint</title>
+  <link href="lib/codemirror.css" type="text/css" rel="stylesheet">
+  <link href="mode/javascript/javascript.css" type="text/css" rel="stylesheet">
+  <script src="lib/codemirror.js"></script>
+  <script src="lib/overlay.js"></script>
+  <script src="mode/javascript/javascript.js"></script>
+  <script src="https://github.com/jshint/jshint/raw/master/jshint.js"></script>
+  <script src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.4.4.js"></script>
+  <script src="https://github.com/jaz303/tipsy/raw/master/src/javascripts/jquery.tipsy.js"></script>
+  <style type="text/css">
+    .CodeMirror { border: solid thin black; font-family: monospace; line-height:1.2em; }
+  </style>
+  <script type="text/javascript">
+    function boot() {
+	    console.dir($('#lint_me'));
+	    var container = document.getElementById("code");
+	    window.codeMirrorEditor = CodeMirror.fromTextArea(container, { 
+		    mode: "javascript",
+			  lineNumbers: true,
+			  matchBrackets: true,
+			  enterMode: "flat",
+			  gutter: true,
+			  readOnly: false,
+			  workTime: 200,
+			  workDelay: 200,
+			  undoDepth: 100,
+			  onKeyEvent: this.onKeyEvent
+			});
+			var button = document.getElementById("lint_me");
+	    button.addEventListener("click", function(e) {
+		    var content = window.codeMirrorEditor.getValue();
+		    JSHINT(content);
+		    JSHINT.errors.forEach(function(error) {
+			    console.log(error);
+			    window.codeMirrorEditor.setMarker(error.line, "<span class='marker' style='color:red' original-title='" + error.reason + "'><b>&#149;</b></span> %N%"); $('span.marker').tipsy({gravity:"n"});
+		    });
+	   });
+    };
+    $(document).ready(boot);
+  </script>
+</head>
+<body>
+	<textarea id="code" name="mycode" style="padding:2px;border:solid thin black;">function helloWorld() { };</textarea>
+	<button id="lint_me">JSHint</button>
+</body>

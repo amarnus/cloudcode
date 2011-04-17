@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script type="text/javascript" src="static/cloudcode_client/en/1/oauth.js"></script>
+    <script type="text/javascript" src="static/cloudcode_client/en/1/oauthsimple.js"></script>
+    <script type="text/javascript">
+		   
+      var oauth = ChromeExOAuth.initBackgroundPage({
+			  'request_url' : 'http://cloudcodeapp.appspot.com/_ah/OAuthGetRequestToken',
+			  'authorize_url' : 'http://cloudcodeapp.appspot.com/_ah/OAuthAuthorizeToken',
+			  'access_url' : 'http://cloudcodeapp.appspot.com/_ah/OAuthGetAccessToken',
+			  'consumer_key' : 'anonymous',
+			  'consumer_secret' : 'anonymous',
+			  'scope' : 'cloudcode_appspot',
+			  'app_name' : 'cloudcode_appspot'
+			});
+		  
+		  function start(callback) {
+		  	oauth.authorize(callback);
+		  };
+		  
+		  function logout() {
+		  	oauth.clearTokens();
+		  };
+		  
+    </script>
+  </head>
+  <body>
+  </body>
+</html>

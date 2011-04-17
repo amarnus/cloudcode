@@ -1,0 +1,16 @@
+{
+  "name": "Cloudcode",
+  "version": "0.3",
+  "description": "Allows web developers to create, manage and deploy simple applications from the browser",
+  "background_page": "background.html",
+  "app": {
+    "launch": {
+      "local_path": "static/cloudcode_client/en/1/index.html"
+    }
+  },
+  "permissions": [
+    "tabs",
+    "http://localhost/cloudcode_server/*",
+    "http://cloudcodeapp.appspot.com/*"
+  ]
+}

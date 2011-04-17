@@ -1,0 +1,12 @@
+application: cloudcodeapp
+version: 2-0-4
+runtime: python
+api_version: 1
+
+handlers:
+  - url: (/)?install(/)?
+    login: required
+    script: server.py
+    
+  - url: (/)?.*(/)?
+    script: server.py
